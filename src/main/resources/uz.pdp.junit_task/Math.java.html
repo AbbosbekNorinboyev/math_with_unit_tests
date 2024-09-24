@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Math.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">junit_task</a> &gt; <a href="index.source.html" class="el_package">uz.pdp.junit_task</a> &gt; <span class="el_source">Math.java</span></div><h1>Math.java</h1><pre class="source lang-java linenums">package uz.pdp.junit_task;
+
+import java.util.Arrays;
+
+<span class="fc" id="L5">public class Math {</span>
+    public int sum(int... args) throws IllegalAccessException {
+<span class="pc bpc" id="L7" title="1 of 2 branches missed.">        if (args == null) {</span>
+<span class="nc" id="L8">            throw new IllegalAccessException(&quot;Arguments can not be null&quot;);</span>
+        }
+<span class="fc" id="L10">        return Arrays.stream(args)</span>
+<span class="fc" id="L11">                .reduce(Integer::sum)</span>
+<span class="fc" id="L12">                .orElse(0);</span>
+    }
+
+    public int sub(int a, int b) {
+<span class="fc" id="L16">        return a - b;</span>
+    }
+
+    public int addNumbers(int a, int b) {
+<span class="fc" id="L20">        return a + b;</span>
+    }
+
+    public int div(int a, int b) {
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        if (b &lt; 0) {</span>
+            try {
+<span class="fc" id="L26">                Thread.sleep(100); // thread ni vaqti ko'p bo'lsa timeout dan exception tashlaydi</span>
+<span class="nc" id="L27">            } catch (InterruptedException e) {</span>
+<span class="nc" id="L28">                throw new RuntimeException(e);</span>
+<span class="fc" id="L29">            }</span>
+        }
+<span class="fc" id="L31">        return a / b;</span>
+    }
+
+    public int mul(int a, int b) {
+<span class="fc" id="L35">        return a * b;</span>
+    }
+
+    public int pow(int number, int power) {
+<span class="fc" id="L39">        int result = 1;</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        for (int i = 0; i &lt; power; i++) {</span>
+<span class="fc" id="L41">            result = result * number;</span>
+        }
+<span class="fc" id="L43">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
